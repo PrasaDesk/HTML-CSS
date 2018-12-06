@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: aliceblue;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+.row {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/bg11.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 200%;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 300;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+h2{
+    margin-bottom: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    word-spacing: 3px;
+    font-size: 23px;
+    background-color: #8df2f5;
+}
+
+h3{
+    margin-top: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    word-spacing: 3px;
+    font-size: 30px;
+}
+
+
+p{
+    text-align: justify;
+    font-size: 19px;
+    background-color: #fafeff;
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn:link,
+.btn:visited{
+    margin-top: 5px;
+    margin-right: 15px;
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn:hover,
+.btn:active{
+    background-color: #0fa3a7;
+}
+
+.btn-real:link,
+.btn-real:visited {
+    border: 1px solid #30e7ec;
+    color: #30e7ec;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #30e7ec;
+    color: #30e7ec;
+}
+
+.logo {
+    height: 130px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+}
+
+.main-nav li{
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 70px;
+    color: #30e7ec;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited{
+    color: #30e7ec;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    transition: border 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 3px solid #0fa3a7;
+}
