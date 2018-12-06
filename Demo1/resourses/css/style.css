@@ -5,7 +5,6 @@
 }
 
 html{
-    background-color: aliceblue;
     color: #555;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
@@ -16,6 +15,7 @@ html{
 .row {
     max-width: 80%;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 header{
@@ -23,6 +23,7 @@ header{
     background-size: cover;
     background-position: center;
     height: 80vh;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -36,13 +37,12 @@ h1 {
 }
 
 h2{
-    margin-bottom: 2px;
+    margin-bottom: 10px;
     text-align: center;
     text-transform: uppercase;
     font-weight: 300;
     word-spacing: 3px;
     font-size: 23px;
-    background-color: #8df2f5;
 }
 
 h3{
@@ -52,14 +52,19 @@ h3{
     text-transform: uppercase;
     font-weight: 300;
     word-spacing: 3px;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 
 p{
     text-align: justify;
     font-size: 19px;
-    background-color: #fafeff;
+}
+
+p1{
+    margin-top: 20px;
+    text-align: justify;
+    font-size: 19px;
 }
 
 .hero-text-box {
@@ -130,4 +135,58 @@ p{
 .main-nav li a:hover,
 .main-nav li a:active{
     border-bottom: 3px solid #0fa3a7;
+}
+.seperator {
+    background-color: #30e7ec;
+    height: 2px;
+    width:10%;
+    margin-left: 45%;
+    margin-bottom: 30px;
+    
+}
+
+.locations{
+    padding: 0;
+}
+
+.showcase {
+    list-style: none;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.showcase li {
+    display: block;
+    float: left;
+    width: 25%;
+    transform: scale(1.15);
+    transition: transform 0.5s;
+}
+
+.loc-pic {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.loc-pic img{
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    transform: scale(1.15);
+    transition: transform 0.5s, opacity 0.5s;
+
+}
+
+.loc-pic img:hover{
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+
+.work {
+    margin-top: 20px;
+    background-color: beige;
 }
