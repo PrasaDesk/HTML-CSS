@@ -59,7 +59,7 @@ h3{
 p{
     text-align: justify;
     font-size: 19px;
-}
+}0
 
 p1{
     margin-top: 20px;
@@ -191,19 +191,128 @@ p1{
     background-color: beige;
 }
 
-.step-box{
-    margin-top: 30px;
+
+
+.section-step{
+    background-color: #fafeff;
 }
+
 
 .step-box:first-child{
     text-align: right;
     padding-right: 3%;
+    margin-top: 30px;
 }
 
 .step-box:last-child{
     padding-left: 3%;
+    margin-top: 70px;
 }
 
 .appscreen{
     width: 40%;
+    margin-right: 70px;
+}
+
+.workstep{
+    margin-bottom: 50px;
+}
+
+.workstep: last-of-type{
+    margin-bottom: 80px;
+}
+
+.workstep div{
+    border: 2px solid #30e7ec;
+    display: inline-block;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150;
+    margin-right: 30px;
+}
+
+.btn-app img{
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.clearfix{
+    zoom: 1;
+}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.box img{
+    width: 220px;
+    height: 150px;
+}
+
+.city-feature{
+    margin-bottom: 5px;
+}
+
+.icon-small{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: #30e7ec;
+    font-size: 120%;
+    line-height: 120%;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+a:link,
+a:active{
+    color: #0fa3a7;
+    text-decoration: none;
+    padding-bottom: 1px;
+}
+
+a:hover,
+a:active{
+    color: #30e7ec;
+}
+
+footer{
+    background-color: #333;
+}
+
+.footer-nav{
+    list-style: none;
+    float: left;
+    margin-top: 30px;    
+}
+
+.social-links{
+    list-style: none;
+    float: right;
+    margin-top: 30px;
+}
+
+.footer-nav li,
+.social-links li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav:last-child,
+.social-links:last-child{
+    margin-right: 0px;
+}
+
+footer p{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
