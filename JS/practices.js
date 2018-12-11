@@ -208,7 +208,7 @@ for(var i = 1; i <= y; i++){
         break;
     console.log(x + i);
 }
-*/
+
 //pattern in JS
 
 var x = 5;
@@ -218,3 +218,162 @@ for(var i= 1; i <= x;i++){
         console.log(i + 'loop' + j);
     }
 }
+*/
+/*
+
+//coding challange advance tip calculator
+
+var bill = [200, 100, 40, 250, 90];
+//var bill = [0];
+var finalBill = [0];
+
+function calTip(Amt1){
+    var ret = 0;
+    var Amt = Amt1.toExponential();
+    if(Amt < 50){
+        ret = (20/100) * Amt;
+    }
+    else if(Amt >= 50 && Amt < 200){
+        ret = (15/100) * Amt;
+    }
+    else{
+        ret = (10/100) * Amt;
+    }
+    
+    return ret;
+}
+
+for(var i = 0; i < bill.length; i++){
+//    bill[i] = prompt('Enter the Bill Amount of '+ (i+1) + ' Hotel : ');
+    console.log('Bill Of '+ (i+1) +' Hotel is : ' + bill[i]);
+}
+
+for(var i = 0; i < bill.length; i++){
+    finalBill[i] = (calTip(bill[i]) + bill[i]);
+    console.log('Total (Tip + Bill) Bill Of '+ (i+1) +' Hotel is : ' + finalBill[i]);
+}
+
+*/
+
+/*
+//Hoisting
+
+//calAge(1990);
+
+function calAge(year){
+    console.log(2018 - year);
+}
+
+//calAge(1997);
+
+//AgeCal(1990);
+
+var AgeCal = function(year){
+    console.log(2018 - year);    
+}
+
+//AgeCal(1997);
+
+var x = 50;
+
+function foo(){
+    //this.x = 200;
+    var y = 100;
+//    console.log(x);
+//    console.log(y);
+    doo();
+    function doo(){
+        var z = 150;
+        console.log(x,y,z,a,b);
+    }
+    
+    var a =200;
+}
+foo();
+var b = 'prasad';   
+*/
+
+
+//Calculator
+
+var jhon = {
+    firstName : 'jhon',
+    bills : [100, 90, 45, 250, 200],
+        
+    tipcal : function(){
+        this.tip = [];
+        this.finalBill = [];
+        
+        for(var i = 0; i < this.bills.length; i++){
+            var percentage;
+            var bill = this.bills[i];
+            
+            if (bill < 50) {
+                percentage = bill * 0.2;
+            } else if (bill >= 50 && bill < 200) {
+                percentage = bill * 0.15;
+            } else {
+                percentage = bill * 0.1;
+            }
+            
+            // Add results to the corresponing arrays
+            this.tip[i] = percentage;
+            this.finalBill[i] = bill + percentage;
+        }
+    }
+    
+}
+
+var david = {
+    firstName : 'david',
+    bills : [200, 30, 70, 350, 190],
+    /*    
+    tipcal : function(){
+        this.tip = [];
+        this.finalBill = [];
+        
+        for(var i = 0; i < this.bills.length; i++){
+            var percentage;
+            var bill = this.bills[i];
+            
+            if (bill < 50) {
+                percentage = bill * 0.2;
+            } else if (bill >= 50 && bill < 200) {
+                percentage = bill * 0.15;
+            } else {
+                percentage = bill * 0.1;
+            }
+            
+            // Add results to the corresponing arrays
+            this.tip[i] = percentage;
+            this.finalBill[i] = bill + percentage;
+        }
+    }*/
+    
+}
+
+
+function calAvg(tip){
+    var sum = 0;
+    for(var i = 0; i < tip.length ; i++){
+        sum = sum + tip[i];
+    }
+    
+    return (sum / tip.length);
+}
+
+david.tipcal = jhon.tipcal;   //function borrowing
+
+jhon.tipcal();
+david.tipcal();
+
+
+jhon.avg = calAvg(jhon.tip);
+david.avg = calAvg(david.tip);
+
+console.log(jhon, david);
+
+if(jhon.avg > david.avg)
+    console.log('Jhon paid more tip to Hotels');
+else
+    console.log('David paid more tip to Hotels');
