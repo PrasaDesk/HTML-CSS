@@ -189,18 +189,28 @@ interViewQuestions('builder')('Rock');
 /**************************************
 * Clouser
 **************************************/
-
+/*
 function retirment(retiarmentAge){
     
     var a = ' year is remain for the Retiarment';
     console.log('Retiarment age :\t'+retiarmentAge);
     
     return function(YearOfBirth){
+        
+        if(YearOfBirth > 2018){
+            console.log('Invalid Year');
+            return 'Invalid';
+        }
+        
         var age = 2018 - YearOfBirth;
         document.querySelector('.age').innerHTML = age;
         console.log('Person Age : \t\t'+age);
         
         var ret = retiarmentAge - age;
+        
+        if(ret <= 0){
+            ret = 'Retired';
+        }
         
         return ret;
         //console.log((retiarmentAge - age) + a);
@@ -214,3 +224,167 @@ document.querySelector('.btn').addEventListener('click', function(){
     document.querySelector('.Retage').innerHTML = retiarmentUS(temp);
 });
 
+*/
+
+/*****************************************
+* Call, Bind And Apply
+*****************************************/
+/*
+// Call
+
+var person = {
+    name : 'jhon',
+    age : 22,
+    job : 'Developer',
+    presentation : function(style, greeting){
+        switch(style){
+            case 'formal':
+                console.log('Good '+ greeting +', Ladies and Gentalmans; '+'Hi this is '+ this.name +' i\'m a '+ this.job + ', my Age is '+ this.age);
+                break;
+            
+            case 'friendly':
+                console.log('Hey, Good '+ greeting +', brothers and sisters; '+'Hi this is '+ this.name +' i\'m a '+ this.job + ', my Age is '+ this.age);
+        }
+    }
+};
+
+var emily = {
+    name : 'Emily',
+    age : 18,
+    job : 'Musician'
+};
+
+person.presentation('formal', 'morning');
+
+person.presentation.call(emily, 'friendly', 'afternoon');
+
+//bind
+
+var friendly = person.presentation.bind(emily, 'formal');
+
+friendly('Evening');
+
+var arr= [2013, 2000, 1997, 1990, 1982];
+
+function ArrCalc(arr, fn){
+    var brr = [];
+    for(var i = 0; i < arr.length; i++){
+        brr.push(fn(arr[i]));
+    }
+    return brr;
+}
+
+function CalAge(el){
+    return 2018 - el;
+}
+
+function isFullAge(limit, el){
+    return el >= limit;
+}
+
+var Ages = ArrCalc(arr, CalAge);
+console.log(Ages);
+
+var FullAgeJapan = ArrCalc(Ages, isFullAge.bind(this, 20));
+var FullAgeIndia = ArrCalc(Ages, isFullAge.bind(this, 18));
+
+console.log('Japan  :\t'+ FullAgeJapan);
+console.log('India  :\t'+ FullAgeIndia);
+
+
+*/
+
+/************************************************
+* Coding Challange
+************************************************/
+
+(function(){
+    
+    var Questions = function(question, answers, correct){
+        this.question = question;
+        this.answers = answers;
+        this.correct = correct;
+    }
+
+    Questions.prototype.displayQuestion = function() {
+        console.log(this.question);
+        for(var i = 0; i < this.answers.length ; i++){
+            console.log(i +' : '+this.answers[i]);
+        }
+    }
+
+
+
+    Questions.prototype.CheckAns = function(ans, callback) {   //here Callback is Function (score() [keepscore])
+
+        var sc;
+
+        if(this.answers[ans] === this.correct){
+            console.log('Correct Amswer');
+            sc = callback(true);
+        }
+        else{
+            console.log('Wrong Answer');
+            sc = callback(false);
+        }
+        this.CheckScore(sc);
+    }
+
+
+
+
+    Questions.prototype.CheckScore = function(score){
+        console.log('Current Score is ' + score);
+        console.log('----------------------------------------');
+    }
+
+
+
+    var que1 = new Questions('2 * 2 = ? ', [4, 7, 8], 4);
+    var que2 = new Questions('10 / 2 = ? ', [50, 5, 12], 5);
+    var que3 = new Questions('10 ^ 10 = ? ', [342, 203, 100], 100);
+
+    var Question = [que1, que2, que3]
+
+
+    //clouser
+    function score() {
+        var sc = 0;
+        return function(correct){
+            if(correct){
+                sc += 2;
+            }
+            else{
+                sc -= 1;
+            }
+            return sc;
+        }
+    }
+
+    var keepScore = score();
+
+
+    document.querySelector('.btn').addEventListener('click', function(){
+        nextQuestion();
+    });
+
+
+    function nextQuestion(){
+
+        var n = Math.floor(Math.random() * Question.length);
+
+        Question[n].displayQuestion();
+
+        //var ans = prompt('Enter the Correct Option : ');
+
+        var ans = document.querySelector('.option').value
+
+        if(ans !== 'exit'){
+            Question[n] .CheckAns(parseInt(ans), keepScore); //Passing the function as argument    
+            nextQuestion();
+        }
+    }
+
+    nextQuestion();
+    
+})();
