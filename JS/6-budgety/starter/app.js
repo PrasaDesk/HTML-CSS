@@ -242,11 +242,27 @@ var controller = (function(budgetCtrl, UICtrl){
            
             updateBudget();
         }
-        
-
-        
-    }
    
+    }
+
+    var ctrlDeleteItem = function(event){
+        var itemID, splitID, type, ID;
+
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+
+        if(itemID){
+            splitID = itemID.split('-');
+            type = splitID[0];
+            ID = splitID[1];
+            
+            // 1 delete Item from Data structure
+
+            // 2 delete item form UI
+
+            // 3 update and show the new budget
+        }
+    }
+
     return {
         init : function () {  
         console.log('Application is Started..!!!');
