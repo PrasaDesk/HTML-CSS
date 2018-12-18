@@ -122,6 +122,7 @@ var BudgetController = (function(){
 
         },
 
+        
         calculatePercentages : function(cur){
             data.allItem.exp.forEach(function(cur){
                 cur.calcPercentages(data.total.inc);
@@ -198,6 +199,30 @@ var UIController = (function () {
         }
     };
 
+    var DisplayTime = function () {  
+        var time,now;
+
+        now = new Date();
+
+        time = now.getHours() + ':' +now.getMinutes() + ':' +now.getMilliseconds();
+
+        console.log(time);
+        return time;
+
+    }
+
+    var DisplayDay = function () {  
+        var day,now;
+
+        now = new Date();
+        months = ['jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        day = now.getDay() + ' - ' + months[now.getMonth() - 1];
+
+        console.log(day);
+        return day;
+
+    }
+
 
     return {                            
         getInput: function(){
@@ -217,18 +242,19 @@ var UIController = (function () {
             //sending HTML through the string
             if(type === 'inc'){
                 element = DOMString.income;
-                html = '<div class="item clearfix" id="income-%id%"> <div class="item__description">%desc%</div> <div class="right clearfix"> <div class="item__value">%val%</div> <div class="item__delete"> <button class="item__delete--btn"><i class="ion-ios-close-outline"> </i></button> </div> </div> </div>';
+                html = '<div class="item clearfix" id="income-%id%"> <div class="item__description">%desc%</div> <div class="right clearfix"><div class="item__value">%val%</div><div class="item__timei">%day%</div><div class="item__timei">%time%</div><div class="item__delete"> <button class="item__delete--btn"><i class="ion-ios-close-outline"> </i></button> </div> </div> </div>';
             }
             else if(type == 'exp'){
                 element = DOMString.expense;
-                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%desc%</div> <div class="right clearfix"><div class="item__value">%val%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%desc%</div> <div class="right clearfix"><div class="item__value">%val%</div><div class="item__timee">%day%</div><div class="item__timee">%time%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             }
 
             //replacing data %id% in html code with (obj.id)
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%desc%', obj.desc);
             newHtml = newHtml.replace('%val%', FormatNumber(obj.value, type));
-
+            newHtml = newHtml.replace('%time%', DisplayTime());
+            newHtml = newHtml.replace('%day%', DisplayDay());
             //console.log('id item : ' + obj.id);
 
             //sending the HTML code or render it on browser
@@ -286,6 +312,8 @@ var UIController = (function () {
 
 
         },
+
+        
 
         DisplayDate : function() {
             var months, month, year, now;
@@ -384,7 +412,7 @@ var controller = (function(budgetCtrl, UICtrl){
         //calling method budgetCtrl.addItem and passing required Data (type, desc, val)
         
 
-        if(InputData.description !== '' && InputData.value !== 0){
+        if(InputData.description !== '' && !isNaN(InputData.value) && InputData.value > 0){
             newInput = budgetCtrl.addItem(InputData.type, InputData.description, InputData.value);
             //console.log(newInput);
            
