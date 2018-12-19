@@ -63,8 +63,13 @@ var controller = (function(budgetCtrl, UICtrl){
         //fetching New Item From UI controller
         //calling method budgetCtrl.addItem and passing required Data (type, desc, val)
         
+        var str = InputData.description;
 
-        if(InputData.description !== '' && !isNaN(InputData.value) && InputData.value > 0){
+        str = str.replace(/[^a-zA-Z ]/g, "");
+        //console.log(str);
+        str = str.trim();
+
+        if(str !== '' && !isNaN(InputData.value) && InputData.value > 0){
             newInput = budgetCtrl.addItem(InputData.type, InputData.description, InputData.value);
             //console.log(newInput);
            
