@@ -33,7 +33,7 @@ body {
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(img/back.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -285,7 +285,7 @@ h2 {
     background-color: #D3F1F0;
     padding: 3px;
     border-radius: 3px;
-    width: 55px;
+    width: 50px;
     text-align: center;
 }
 
@@ -297,6 +297,6 @@ h2 {
     background-color: #FFDAD9;
     padding: 3px;
     border-radius: 3px;
-    width: 55px;
+    width: 50px;
     text-align: center;
 }
