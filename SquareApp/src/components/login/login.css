@@ -1,0 +1,75 @@
+.LoginApp {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+  }
+
+.LoginApp-Center {
+    background-color: #56baed;
+    min-height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+.LoginBox{
+    min-height: 430px;
+    height: auto;
+    width: 450px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #0e9ee6
+}
+
+.LoginForm{
+    background-color: #ffffff;
+    width: 450px;
+    height: 390px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-shadow: 0px 4px 10px #d4d4d4
+}
+
+.textfield{
+    width: 300px !important;
+}
+
+.errorFont{
+    font-size: 13px;
+    color:red;
+}
+
+.logo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.btn{
+    width: 200px!important;
+    min-width: unset!important;
+    background-color: #0e9ee6 !important;
+    position: fixed;
+}
+
+.forget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.FontForgetPassword{
+    width: 120px;
+    padding-top: 10px;
+    font-size: 15px;
+    color: #84bdda;
+}
+
+.FontForgetPassword:hover{
+    color: #0b4d6e;
+    cursor: pointer;
+    border-bottom: 2px solid #5fbae9;
+}
+
