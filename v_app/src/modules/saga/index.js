@@ -1,27 +1,39 @@
-import { takeLatest, call, put } from "redux-saga/effects";
-// import fetchData from '../services/index';
-import axios from 'axios';
+import { call, put, takeLatest } from "redux-saga/effects";
+import { response_login_data, FAILURE_API_DATA, REQUEST_API_DATA, response_get_users, REQUEST_GET_USERS } from '../actions/index';
+import { fetchLoginData, fetchUsers } from "../services/index";
 
-export function* watcherSaga() {
-    yield takeLatest("REQUEST_API_DATA", workersaga);
-}
-
-const fetchData = () => {
-    return axios({
-        method: "get",
-        url: 'http://localhost:5050' + '/users'
-    });
-}
-
-function* workersaga() {
+function* postLoginData(action) {
     try {
-        const response = yield call(fetchData)
-        const data = response.data
-        console.log("data from saga file:  ", data)
+        // const { history } = action.data.history;
+        const data = yield call(fetchLoginData, action.data);
+        if (data.status !== 400) {
+            console.log("data from saga: ", data)
+            yield put(response_login_data(data))
+            // history.push('/home');
+        }
+        if (data.status === 400) {
+            yield put(FAILURE_API_DATA(data));
+            // history.push('/login');
+        }
 
-        yield put({ type: "RESPONSE_API_DATA", data })
+    } catch (e) {
+        console.log(e);
+
     }
-    catch (error) {
-        yield put({ type: "FAILURE_API_DATA", error })
+}
+
+function* getUserData(action) {
+    try {
+        const data = yield call(fetchUsers)
+        console.log("Get users from Sagas: ", data)
+        yield put(response_get_users(data))
+    } catch (e) {
+        console.log(e)
     }
+}
+
+
+export default function* SagaFunc() {
+    yield takeLatest(REQUEST_API_DATA, postLoginData);
+    yield takeLatest(REQUEST_GET_USERS, getUserData);
 }
