@@ -1,0 +1,27 @@
+.root {
+    display: flex
+}
+
+.drawer {
+    width: 180px;
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+.drawerPaper {
+    width: 180px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 3;
+}
+
+.appBar{
+    z-index: +1 !important;
+    background-color: #0e9ee6;
+}
+
+.selected{
+    color: #0e9ee6 !important;
+}

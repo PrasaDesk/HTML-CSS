@@ -1,0 +1,21 @@
+.MainUserProfile{
+    width: 100%;
+    height: auto;
+    background-color: whitesmoke;
+}
+
+.userProfilePaper{
+    width: 100%;
+    height: auto;
+}
+
+.userDetailForm{
+    width: 100%;
+    padding: 2%;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.textfieldUserDetail{
+    width: 80%;
+}

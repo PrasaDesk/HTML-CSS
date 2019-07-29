@@ -1,0 +1,16 @@
+.TableHead{
+    background-color: #0e9ee6;
+    border-bottom: solid #0c435f;
+}
+
+.padd{
+    padding: 1%;
+}
+
+.TableRowCont{
+    background-color: rgb(250, 255, 255);
+}
+
+.TableRowCont:hover{
+    background-color: rgb(231, 255, 255);
+}

@@ -1,10 +1,16 @@
 import { combineReducers } from "redux";
-import apiReducer from './apiReducer'
-import userReducer from './userReducer'
+import loginRegisterReducer from './loginRegisterReducer';
+import logoutReducer from './logoutReducer';
+import forgetReducer from './forgetReducer';
+import userReducer from './userReducer';
+import visitReducer from './visitReducer';
 
 const rootReducer = combineReducers({
-    apiReducer,
-    userReducer
+    loginRegisterReducer,
+    logoutReducer,
+    forgetReducer,
+    userReducer,
+    visitReducer
 });
 
 export default rootReducer
