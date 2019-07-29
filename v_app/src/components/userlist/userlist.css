@@ -1,6 +1,6 @@
 .TableHead{
-    background-color: #0e9ee6;
-    border-bottom: solid #0c435f;
+    background-color: rgb(184, 184, 184);
+    border-bottom: solid rgb(119, 119, 119);
 }
 
 .padd{
@@ -12,5 +12,5 @@
 }
 
 .TableRowCont:hover{
-    background-color: rgb(231, 255, 255);
+    background-color: rgb(235, 235, 235);
 }

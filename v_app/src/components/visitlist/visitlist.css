@@ -11,8 +11,16 @@
     text-overflow: ellipsis;
 }
 
+.VisitCard:hover{
+    background-color: rgb(235, 235, 235);
+}
+
 .RootCard{
     width: 100%;
+}
+
+.RootCard:hover{
+    background-color: rgb(235, 235, 235);
 }
 
 .root{

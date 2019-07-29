@@ -68,7 +68,7 @@ export class AddUser extends Component {
     render() {
         return (
             <div>
-                <AppBar position="static" className="VisitBar">
+                <AppBar position="static" className="VisitBar" style={{ marginBottom: "5px" }}>
                     <Toolbar>
                         <Typography variant="h6" className="title">
                             Register New User
